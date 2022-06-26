@@ -11,14 +11,14 @@ switch ($_GET['action'])
         $Nomor = $_POST['Nomor'];
         
 
-        $query = mysqli_query($koneksi, "INSERT INTO surat (Nama, Tanggal, Nomor) VALUES('$Nama', '$Tanggal', '$Nomor')");
+        $query = pg_query($koneksi, "INSERT INTO surat (Nama, Tanggal, Nomor) VALUES('$Nama', '$Tanggal', '$Nomor')");
         if ($query)
         {
             echo "Simpan Data Berhasil";
         }
         else
         {
-            echo "Simpan Data Gagal :" . mysqli_error($koneksi);
+            echo "Simpan Data Gagal :" . pg_error($koneksi);
         }
     break;
 
@@ -30,28 +30,28 @@ switch ($_GET['action'])
         $Nomor = $_POST['Nomor'];
         
 
-        $query = mysqli_query($koneksi, "UPDATE surat SET Nama='$Nama', Tanggal='$Tanggal', Nomor='$Nomor' WHERE Id='$Id'");
+        $query = pg_query($koneksi, "UPDATE surat SET Nama='$Nama', Tanggal='$Tanggal', Nomor='$Nomor' WHERE Id='$Id'");
         if ($query)
         {
             echo "Edit Data Berhasil";
         }
         else
         {
-            echo "Edit Data Gagal :" . mysqli_error($koneksi);
+            echo "Edit Data Gagal :" . pg_error($koneksi);
         }
     break;
 
     case 'delete':
 
         $Id = $_POST['Id'];
-        $query = mysqli_query($koneksi, "DELETE FROM surat WHERE Id='$Id'");
+        $query = pg_query($koneksi, "DELETE FROM surat WHERE Id='$Id'");
         if ($query)
         {
             echo "Hapus Data Berhasil";
         }
         else
         {
-            echo "Hapus Data Gagal :" . mysqli_error($koneksi);
+            echo "Hapus Data Gagal :" . pg_error($koneksi);
         }
     break;
 }

@@ -20,8 +20,8 @@
         <?php
    include "koneksi.php";
    $no=1;
-   $query=mysqli_query($koneksi, "SELECT * FROM surat ORDER BY Id DESC") or die(mysqli_error($koneksi));
-   while ($result=mysqli_fetch_array($query)) {
+   $query=pg_query($koneksi, "SELECT * FROM surat ORDER BY Id DESC") or die(pg_error($koneksi));
+   while ($result=pg_fetch_array($query)) {
     ?>
             <tr>
                 <td>
