@@ -1,8 +1,8 @@
 <?php
  include "koneksi.php";
  $Id=$_GET['Id'];
- $query=pg_query($koneksi, "SELECT * FROM Surat WHERE Id='$Id'") or die(pg_error($koneksi));
- $result=pg_fetch_array($query);
+ $query=mysqli_query($koneksi, "SELECT * FROM Surat WHERE Id='$Id'") or die(mysqli_error($koneksi));
+ $result=mysqli_fetch_array($query);
 ?>
 <!DOCTYPE html>
 <html>
